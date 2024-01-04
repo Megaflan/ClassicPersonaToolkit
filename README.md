@@ -19,14 +19,21 @@
 | Archive | Persona 1 | **Import:** :x: **Export:** :x: | PC |
 | Archive | Persona 1 | **Import:** :x: **Export:** :x: | PSX |
 | Archive | Persona 1 | **Import:** :x: **Export:** :x: | PSP |
+| Image | Persona 1 | **Import:** :x: **Export:** :x: | PC |
+| Image | Persona 1 | **Import:** :x: **Export:** :x: | PSX |
+| Image | Persona 1 | **Import:** :x: **Export:** :x: | PSP |
 | Text | Persona 2: Innocent Sin | **Import:** :x: **Export:** :x: | PSX |
 | Text | Persona 2: Innocent Sin | **Import:** :x: **Export:** :x: | PSP |
 | Archive | Persona 2: Innocent Sin | **Import:** :x: **Export:** :x: | PSX |
 | Archive | Persona 2: Innocent Sin | **Import:** :x: **Export:** :x: | PSP |
+| Image | Persona 2: Innocent Sin | **Import:** :x: **Export:** :x: | PSX |
+| Image | Persona 2: Innocent Sin | **Import:** :x: **Export:** :x: | PSP |
 | Text | Persona 2: Eternal Punishment | **Import:** :x: **Export:** :x: | PSX |
 | Text | Persona 2: Eternal Punishment | **Import:** :x: **Export:** :x: | PSP |
 | Archive | Persona 2: Eternal Punishment | **Import:** :x: **Export:** :x: | PSX |
 | Archive | Persona 2: Eternal Punishment | **Import:** :x: **Export:** :x: | PSP |
+| Image | Persona 2: Eternal Punishment | **Import:** :x: **Export:** :x: | PSX |
+| Image | Persona 2: Eternal Punishment | **Import:** :x: **Export:** :x: | PSP |
 
 ## Build
 
