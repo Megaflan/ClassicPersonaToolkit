@@ -9,4 +9,14 @@
     <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Formats\P1\PC\" />
+    <Folder Include="Formats\P1\PSP\" />
+    <Folder Include="Formats\P1\PSX\" />
+    <Folder Include="Formats\P2EP\PSP\" />
+    <Folder Include="Formats\P2EP\PSX\" />
+    <Folder Include="Formats\P2IS\PSP\" />
+    <Folder Include="Formats\P2IS\PSX\" />
+  </ItemGroup>
+
 </Project>
