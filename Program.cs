@@ -24,8 +24,8 @@
                 PrintHeader();
 
                 Console.WriteLine("Select an option:");
-                Console.WriteLine("1. Test Function 1");
-                Console.WriteLine("2. Test Function 2");
+                Console.WriteLine("1. Test Function 1 (Extract P2 BIN)");
+                Console.WriteLine("2. Test Function 2 (Extract all P2 BIN in a dir)");
                 Console.WriteLine("3. Exit");
                 Console.Write("> ");
 
@@ -35,10 +35,46 @@
                 switch (option)
                 {
                     case '1':
-                        Function1();
+                        Console.Clear();
+                        try
+                        {
+                            Console.Write("Write the file path: ");
+                            string filePath = Console.ReadLine();
+                            if (filePath != "")
+                                if (Path.Exists(filePath))
+                                    Helpers.P2IS.PSP.P2ISHelper.ExtractPersona2Bin(filePath);
+                                else
+                                    Console.WriteLine("No file exists in this dir.");
+                            else
+                                Console.WriteLine("No file path detected.");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"An exception occurred: {ex.Message}");
+                        }
                         break;
                     case '2':
-                        Function2();
+                        Console.Clear();
+                        try
+                        {
+                            Console.Write("Write the dir path: ");
+                            string dirPath = Console.ReadLine();
+                            if (dirPath != "")
+                                if (Path.Exists(dirPath))
+                                    foreach (string filePath in Directory.GetFiles(dirPath, "*.bin"))
+                                    {
+                                        if (filePath.EndsWith(".bin", StringComparison.Ordinal))
+                                            Helpers.P2IS.PSP.P2ISHelper.ExtractPersona2Bin(filePath);
+                                    }
+                                else
+                                    Console.WriteLine("No file exists in this dir.");
+                            else
+                                Console.WriteLine("No file path detected.");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"An exception occurred: {ex.Message}");
+                        }
                         break;
                     case '3':
                         Console.WriteLine("Exiting the program. Goodbye!");
@@ -56,40 +92,6 @@
             catch (Exception ex)
             {
                 Console.WriteLine($"An exception occurred in ShowMenu: {ex.Message}");
-            }
-        }
-
-        static void Function1()
-        {
-            Console.Clear();
-            try
-            {
-                // This will be eliminated, this will call a converter to a test format.
-                Console.WriteLine("You selected Function 1.");
-                Console.WriteLine("Press any key to return to the menu...");
-                Console.ReadKey();
-                //
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"An exception occurred in Function1: {ex.Message}");
-            }
-        }
-
-        static void Function2()
-        {
-            Console.Clear();
-            try
-            {
-                // This will be eliminated, this will call a converter to a test format.
-                Console.WriteLine("You selected Function 2.");
-                Console.WriteLine("Press any key to return to the menu...");
-                Console.ReadKey();
-                //
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"An exception occurred in Function2: {ex.Message}");
             }
         }
 
