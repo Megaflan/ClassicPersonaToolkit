@@ -1,4 +1,4 @@
-# ClassicPersonaToolkit [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://choosealicense.com/licenses/mit/) [![Build and test](https://github.com/TraduSquare/Metatron/workflows/Build%20and%20test/badge.svg)]
+# ClassicPersonaToolkit [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://choosealicense.com/licenses/mit/)
 
 **ClassicPersonaToolkit** helps in the data explotation of binary formats related to Persona 1 and 2.
 
