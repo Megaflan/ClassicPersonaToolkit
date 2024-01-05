@@ -60,7 +60,8 @@ namespace ClassicPersonaToolkit.Helpers.Generic
                 writer.WriteLine("Type: " + contType);
                 foreach (var f in fileList)
                 {
-                    writer.WriteLine(f.Key + ":" + f.Value);
+                    if (f.Value != string.Empty)
+                        writer.WriteLine(f.Key + ":" + f.Value);
                 }
             }            
         }

@@ -22,7 +22,9 @@ namespace ClassicPersonaToolkit.Formats.P2IS.PSP
             int c = 0;
             uint prevPos = 0;
             while (rPos != 0x0)
-            {                
+            {
+                if (rPos == 0x8088b1f)
+                    break;
                 rPos = dr.ReadUInt32();
                 if (rPos != prevPos)
                 {
