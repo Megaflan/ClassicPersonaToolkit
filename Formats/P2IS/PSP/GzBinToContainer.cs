@@ -3,7 +3,6 @@ using Yarhl.FileFormat;
 using Yarhl.FileSystem;
 using Yarhl.IO;
 using ClassicPersonaToolkit.Helpers.Generic;
-using System.Drawing;
 
 namespace ClassicPersonaToolkit.Formats.P2IS.PSP
 {

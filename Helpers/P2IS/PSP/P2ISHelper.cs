@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Yarhl.FileSystem;
+using System.IO.Compression;
+using ClassicPersonaToolkit.Helpers.Generic;
 using Yarhl.IO;
 
 namespace ClassicPersonaToolkit.Helpers.P2IS.PSP
@@ -40,8 +42,15 @@ namespace ClassicPersonaToolkit.Helpers.P2IS.PSP
                 {
                     if (dir == null)
                         dir = AppDomain.CurrentDomain.BaseDirectory;
-                    Console.WriteLine($"Writing {f.Name} in {dir + Path.GetFileNameWithoutExtension(filePath)}...");
-                    f.Stream.WriteTo(dir + Path.GetFileNameWithoutExtension(filePath) + Path.DirectorySeparatorChar + f.Name + ".bin");
+                    var fileName = DataStreamUtils.ObtainFileNameFromGZip(f.Stream);
+                    if (!Directory.Exists(dir + Path.GetFileNameWithoutExtension(filePath)))
+                        Directory.CreateDirectory(dir + Path.GetFileNameWithoutExtension(filePath));
+                    Console.WriteLine($"Decompressing {fileName} in {dir + Path.GetFileNameWithoutExtension(filePath)}...");
+                    var decStream = DataStreamUtils.ConvertDataStreamToGZipStream(f.Stream);
+                    using (FileStream fileStream = File.Create(dir + Path.GetFileNameWithoutExtension(filePath) + Path.DirectorySeparatorChar + fileName))
+                    {
+                        decStream.CopyTo(fileStream);
+                    }
                 }
                 Console.Write("Finished writing! (Press Enter to continue)");
                 Console.ReadLine();
