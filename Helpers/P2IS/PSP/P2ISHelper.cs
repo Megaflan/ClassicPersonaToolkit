@@ -12,7 +12,7 @@ namespace ClassicPersonaToolkit.Helpers.P2IS.PSP
 {
     public static class P2ISHelper
     {
-        public static void  ExtractPersona2Bin(string filePath)
+        public static void ExtractPersona2Bin(string filePath)
         {
             using (var binNode = NodeFactory.FromFile(filePath))
             {
