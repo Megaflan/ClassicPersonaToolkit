@@ -34,7 +34,7 @@ namespace ClassicPersonaToolkit.Formats.P2IS.PSP
             foreach (var node in nodeList)
             {
                 node.Position += padding;
-                file.Root.Add(new Node($"f{node.Id}", new BinaryFormat(source.Stream, node.Position, node.Size)));
+                file.Root.Add(new Node($"{node.Id}", new BinaryFormat(source.Stream, node.Position, node.Size)));
                 padding += node.Size;
             }
 

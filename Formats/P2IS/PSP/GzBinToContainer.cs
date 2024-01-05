@@ -43,7 +43,7 @@ namespace ClassicPersonaToolkit.Formats.P2IS.PSP
 
             foreach (var node in nodeList)
             {
-                file.Root.Add(new Node($"e{node.Id}", new BinaryFormat(source.Stream, node.Position, node.Size)));
+                file.Root.Add(new Node($"{node.Id}", new BinaryFormat(source.Stream, node.Position, node.Size)));
             }
             
             return file;
