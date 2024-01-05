@@ -29,5 +29,23 @@ namespace ClassicPersonaToolkit.Helpers.P2IS.PSP
             }
         }
 
+        public static void ExtractPersona2GzBin(string filePath)
+        {
+            using (var binNode = NodeFactory.FromFile(filePath))
+            {
+                var container = binNode.TransformWith<Formats.P2IS.PSP.GzBinToContainer>();
+                Console.Write("Write to directory: ");
+                string dir = Console.ReadLine();
+                foreach (var f in Navigator.IterateNodes(container))
+                {
+                    if (dir == null)
+                        dir = AppDomain.CurrentDomain.BaseDirectory;
+                    Console.WriteLine($"Writing {f.Name} in {dir + Path.GetFileNameWithoutExtension(filePath)}...");
+                    f.Stream.WriteTo(dir + Path.GetFileNameWithoutExtension(filePath) + Path.DirectorySeparatorChar + f.Name + ".bin");
+                }
+                Console.Write("Finished writing! (Press Enter to continue)");
+                Console.ReadLine();
+            }
+        }
     }
 }

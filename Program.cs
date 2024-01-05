@@ -26,7 +26,8 @@
                 Console.WriteLine("Select an option:");
                 Console.WriteLine("1. Test Function 1 (Extract P2 BIN)");
                 Console.WriteLine("2. Test Function 2 (Extract all P2 BIN in a dir)");
-                Console.WriteLine("3. Exit");
+                Console.WriteLine("3. Test Function 3 (Extract P2 GZBIN)");
+                Console.WriteLine("0. Exit");
                 Console.Write("> ");
 
                 char option = Console.ReadKey().KeyChar;
@@ -77,6 +78,25 @@
                         }
                         break;
                     case '3':
+                        Console.Clear();
+                        try
+                        {
+                            Console.Write("Write the file path: ");
+                            string filePath = Console.ReadLine();
+                            if (filePath != "")
+                                if (Path.Exists(filePath))
+                                    Helpers.P2IS.PSP.P2ISHelper.ExtractPersona2GzBin(filePath);
+                                else
+                                    Console.WriteLine("No file exists in this dir.");
+                            else
+                                Console.WriteLine("No file path detected.");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"An exception occurred: {ex.Message}");
+                        }
+                        break;
+                    case '0':
                         Console.WriteLine("Exiting the program. Goodbye!");
                         break;
                     default:
@@ -84,7 +104,7 @@
                         break;
                 }
 
-                if (option != '3')
+                if (option != '0')
                 {
                     ShowMenu();
                 }
