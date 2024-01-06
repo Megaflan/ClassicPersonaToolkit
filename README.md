@@ -26,7 +26,7 @@
 | Text | Persona 2: Eternal Punishment | **Import:** :x: **Export:** :x: | PSX |
 | Text | Persona 2: Eternal Punishment | **Import:** :x: **Export:** :x: | PSP |
 | Archive | Persona 2: Eternal Punishment | **Import:** :x: **Export:** :x: | PSX |
-| Archive | Persona 2: Eternal Punishment | **Import:** :x: **Export:** :x: | PSP |
+| Archive | Persona 2: Eternal Punishment | **Import:** :x: **Export:** :heavy_check_mark: | PSP |
 
 ## Build
 
