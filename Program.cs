@@ -144,6 +144,8 @@
 
                 if (option != '0')
                 {
+                    Console.Write("(Press Enter to continue)");
+                    Console.ReadLine();
                     ShowMenu();
                 }
             }

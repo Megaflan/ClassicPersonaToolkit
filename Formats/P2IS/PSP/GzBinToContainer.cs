@@ -42,6 +42,7 @@ namespace ClassicPersonaToolkit.Formats.P2IS.PSP
 
                 nodeA.Size = nodeB.Position - nodeA.Position;
             }
+            nodeList.RemoveAt(nodeList.Count - 1);
 
             foreach (var node in nodeList)
             {
