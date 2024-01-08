@@ -19,8 +19,12 @@ namespace ClassicPersonaToolkit.Helpers.P2IS.PSP
                 var container = binNode.TransformWith<Formats.P2IS.PSP.BinToContainer>();
                 Console.Write("Write to directory: ");
                 string dir = Console.ReadLine();
-                if (!Path.EndsInDirectorySeparator(dir))
-                    dir += Path.DirectorySeparatorChar;
+
+                if (dir != string.Empty)
+                {
+                    if (!Path.EndsInDirectorySeparator(dir))
+                        dir += Path.DirectorySeparatorChar;                    
+                }
 
                 if (!Directory.Exists(dir + Path.GetFileNameWithoutExtension(filePath)))
                     Directory.CreateDirectory(dir + Path.GetFileNameWithoutExtension(filePath));
@@ -50,8 +54,12 @@ namespace ClassicPersonaToolkit.Helpers.P2IS.PSP
                 var container = binNode.TransformWith<Formats.P2IS.PSP.GzBinToContainer>();
                 Console.Write("Write to directory: ");
                 string dir = Console.ReadLine();
-                if (!Path.EndsInDirectorySeparator(dir))
-                    dir += Path.DirectorySeparatorChar;
+
+                if (dir != string.Empty)
+                {
+                    if (!Path.EndsInDirectorySeparator(dir))
+                        dir += Path.DirectorySeparatorChar;
+                }
 
                 if (!Directory.Exists(dir + Path.GetFileNameWithoutExtension(filePath)))
                     Directory.CreateDirectory(dir + Path.GetFileNameWithoutExtension(filePath));
