@@ -25,7 +25,7 @@ namespace ClassicPersonaToolkit.Formats.P2IS.PSP
                 nodeList.Add(new NodeData(i, 0, size));
             }
 
-            long padding = 0;
+            long padding = dr.Stream.Position;
             while (dr.ReadInt32() == 0)
             {
                 padding = dr.Stream.Position;
@@ -35,7 +35,7 @@ namespace ClassicPersonaToolkit.Formats.P2IS.PSP
             {
                 node.Position += padding;
                 file.Root.Add(new Node($"{node.Id}", new BinaryFormat(source.Stream, node.Position, node.Size)));
-                padding += node.Size;
+                padding += ((node.Size + 0xF) >> 4) << 4;
             }
 
             return file;
