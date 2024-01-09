@@ -18,7 +18,7 @@ namespace ClassicPersonaToolkit.Helpers.P2IS.PSP
             {
                 var container = binNode.TransformWith<Formats.P2IS.PSP.BinToContainer>();
                 Console.Write("Write to directory: ");
-                string dir = Console.ReadLine();
+                string dir = Console.ReadLine().Trim('"');
 
                 if (dir != string.Empty)
                 {
@@ -53,7 +53,7 @@ namespace ClassicPersonaToolkit.Helpers.P2IS.PSP
             {
                 var container = binNode.TransformWith<Formats.P2IS.PSP.GzBinToContainer>();
                 Console.Write("Write to directory: ");
-                string dir = Console.ReadLine();
+                string dir = Console.ReadLine().Trim('"');
 
                 if (dir != string.Empty)
                 {

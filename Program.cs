@@ -43,7 +43,7 @@
                         try
                         {
                             Console.Write("Write the file path: ");
-                            string filePath = Console.ReadLine();
+                            string filePath = Console.ReadLine().Trim('"');
                             if (filePath != "")
                                 if (Path.Exists(filePath))
                                     Helpers.P2IS.PSP.P2ISHelper.ExtractPersona2Bin(filePath);
@@ -62,7 +62,7 @@
                         try
                         {
                             Console.Write("Write the dir path: ");
-                            string dirPath = Console.ReadLine();
+                            string dirPath = Console.ReadLine().Trim('"');
                             if (dirPath != "")
                                 if (Path.Exists(dirPath))
                                     foreach (string filePath in Directory.GetFiles(dirPath, "*.bin", SearchOption.AllDirectories))
@@ -92,7 +92,7 @@
                         try
                         {
                             Console.Write("Write the file path: ");
-                            string filePath = Console.ReadLine();
+                            string filePath = Console.ReadLine().Trim('"');
                             if (filePath != "")
                                 if (Path.Exists(filePath))
                                     Helpers.P2IS.PSP.P2ISHelper.ExtractPersona2GzBin(filePath);
@@ -111,7 +111,7 @@
                         try
                         {
                             Console.Write("Write the dir path: ");
-                            string dirPath = Console.ReadLine();
+                            string dirPath = Console.ReadLine().Trim('"');
                             if (dirPath != "")
                                 if (Path.Exists(dirPath))
                                     foreach (string filePath in Directory.GetFiles(dirPath, "*.bin", SearchOption.AllDirectories))
