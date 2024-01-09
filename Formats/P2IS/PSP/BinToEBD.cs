@@ -14,7 +14,19 @@ namespace ClassicPersonaToolkit.Formats.P2IS.PSP
     {
         Dictionary<ushort, string> controlCodes = new Dictionary<ushort, string>
         {
-            { 0x1101, "{TEXT_START}\n" },
+            { 0x1101, "\n" },
+            { 0x1102, "{1102}" },
+            { 0x1103, "{1103}" },
+            { 0x1104, "{1104}" },
+            { 0x1105, "{1105}" },
+            { 0x1106, "{1106}" },
+            { 0x1107, "{1107}" },
+            { 0x1108, "{1108}" },
+            { 0x1109, "{1109}" },
+            { 0x1110, "{1110}" },
+            { 0x1112, "{FIRST_NAME}" },
+            { 0x1113, "{LAST_NAME}" },
+            { 0x1205, "{1205}" },
             { 0x1120, " " }
         };
         public EBD Convert(BinaryFormat source)
@@ -60,7 +72,7 @@ namespace ClassicPersonaToolkit.Formats.P2IS.PSP
                     {
                         Id = id,
                         Offset = offset,
-                        Text = sb.Append((char)buffer).ToString(),
+                        Text = sb.ToString(),
                     });
                     id++;
                 }
