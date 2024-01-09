@@ -20,6 +20,12 @@ namespace ClassicPersonaToolkit.Helpers.P2IS.PSP
                 Console.Write("Write to directory: ");
                 string dir = Console.ReadLine();
 
+                if (dir != string.Empty)
+                {
+                    if (!Path.EndsInDirectorySeparator(dir))
+                        dir += Path.DirectorySeparatorChar;                    
+                }
+
                 if (!Directory.Exists(dir + Path.GetFileNameWithoutExtension(filePath)))
                     Directory.CreateDirectory(dir + Path.GetFileNameWithoutExtension(filePath));
 
@@ -37,8 +43,7 @@ namespace ClassicPersonaToolkit.Helpers.P2IS.PSP
                     Console.WriteLine($"Writing {f.Name} in {dir + Path.GetFileNameWithoutExtension(filePath)}...");
                     f.Stream.WriteTo(dir + Path.GetFileNameWithoutExtension(filePath) + Path.DirectorySeparatorChar + f.Name + ".bin");
                 }
-                Console.Write("Finished writing! (Press Enter to continue)");
-                Console.ReadLine();
+                Console.WriteLine("Finished writing!");
             }
         }
 
@@ -49,6 +54,12 @@ namespace ClassicPersonaToolkit.Helpers.P2IS.PSP
                 var container = binNode.TransformWith<Formats.P2IS.PSP.GzBinToContainer>();
                 Console.Write("Write to directory: ");
                 string dir = Console.ReadLine();
+
+                if (dir != string.Empty)
+                {
+                    if (!Path.EndsInDirectorySeparator(dir))
+                        dir += Path.DirectorySeparatorChar;
+                }
 
                 if (!Directory.Exists(dir + Path.GetFileNameWithoutExtension(filePath)))
                     Directory.CreateDirectory(dir + Path.GetFileNameWithoutExtension(filePath));
@@ -72,8 +83,7 @@ namespace ClassicPersonaToolkit.Helpers.P2IS.PSP
                         decStream.CopyTo(fileStream);
                     }
                 }
-                Console.Write("Finished writing! (Press Enter to continue)");
-                Console.ReadLine();
+                Console.WriteLine("Finished writing!");
             }
         }
     }
