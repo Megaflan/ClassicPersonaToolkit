@@ -11,13 +11,11 @@
 
   <ItemGroup>
     <Folder Include="Formats\P1\PC\" />
-    <Folder Include="Formats\P1\PSP\" />
     <Folder Include="Formats\P1\PSX\" />
     <Folder Include="Formats\P2EP\PSP\" />
     <Folder Include="Formats\P2EP\PSX\" />
     <Folder Include="Formats\P2IS\PSX\" />
     <Folder Include="Helpers\P1\PC\" />
-    <Folder Include="Helpers\P1\PSP\" />
     <Folder Include="Helpers\P1\PSX\" />
     <Folder Include="Helpers\P2EP\PSP\" />
     <Folder Include="Helpers\P2EP\PSX\" />

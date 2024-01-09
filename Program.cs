@@ -24,10 +24,12 @@
                 PrintHeader();
 
                 Console.WriteLine("Select an option:");
-                Console.WriteLine("1. Test Function 1 (Extract P2 BIN)");
-                Console.WriteLine("2. Test Function 2 (Extract all P2 BIN in a dir)");
-                Console.WriteLine("3. Test Function 3 (Extract P2 GZBIN)");
-                Console.WriteLine("4. Test Function 4 (Extract all P2 GZBIN in a dir)");
+                Console.WriteLine("1. Test Function 1 (Extract P2 BIN) [PSP]");
+                Console.WriteLine("2. Test Function 2 (Extract all P2 BIN in a dir) [PSP]");
+                Console.WriteLine("3. Test Function 3 (Extract P2 GZBIN) [PSP]");
+                Console.WriteLine("4. Test Function 4 (Extract all P2 GZBIN in a dir) [PSP]");
+                Console.WriteLine("5. Test Function 5 (Extract P1 BIN) [PSP]");
+                Console.WriteLine("6. Test Function 6 (Extract all P1 BIN in a dir) [PSP]");
                 Console.WriteLine("0. Exit");
                 Console.Write("> ");
 
@@ -63,7 +65,7 @@
                             string dirPath = Console.ReadLine();
                             if (dirPath != "")
                                 if (Path.Exists(dirPath))
-                                    foreach (string filePath in Directory.GetFiles(dirPath, "*.bin"))
+                                    foreach (string filePath in Directory.GetFiles(dirPath, "*.bin", SearchOption.AllDirectories))
                                     {
                                         try
                                         {
@@ -112,12 +114,61 @@
                             string dirPath = Console.ReadLine();
                             if (dirPath != "")
                                 if (Path.Exists(dirPath))
-                                    foreach (string filePath in Directory.GetFiles(dirPath, "*.bin"))
+                                    foreach (string filePath in Directory.GetFiles(dirPath, "*.bin", SearchOption.AllDirectories))
                                     {
                                         try
                                         {
                                             if (filePath.EndsWith(".bin", StringComparison.Ordinal))
                                                 Helpers.P2IS.PSP.P2ISHelper.ExtractPersona2GzBin(filePath);
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            Console.WriteLine($"An exception occurred: {ex.Message}");
+                                        }
+                                    }
+                                else
+                                    Console.WriteLine("No file exists in this dir.");
+                            else
+                                Console.WriteLine("No file path detected.");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"An exception occurred: {ex.Message}");
+                        }
+                        break;
+                    case '5':
+                        Console.Clear();
+                        try
+                        {
+                            Console.Write("Write the file path: ");
+                            string filePath = Console.ReadLine();
+                            if (filePath != "")
+                                if (Path.Exists(filePath))
+                                    Helpers.P2IS.PSP.P1Helper.ExtractPersona1Bin(filePath);
+                                else
+                                    Console.WriteLine("No file exists in this dir.");
+                            else
+                                Console.WriteLine("No file path detected.");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"An exception occurred: {ex.Message}");
+                        }
+                        break;
+                    case '6':
+                        Console.Clear();
+                        try
+                        {
+                            Console.Write("Write the dir path: ");
+                            string dirPath = Console.ReadLine();
+                            if (dirPath != "")
+                                if (Path.Exists(dirPath))
+                                    foreach (string filePath in Directory.GetFiles(dirPath, "*.bin", SearchOption.AllDirectories))
+                                    {
+                                        try
+                                        {
+                                            if (filePath.EndsWith(".bin", StringComparison.Ordinal))
+                                                Helpers.P2IS.PSP.P1Helper.ExtractPersona1Bin(filePath);
                                         }
                                         catch (Exception ex)
                                         {
