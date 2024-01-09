@@ -18,15 +18,15 @@
 | Text | Persona 1 | **Import:** :x: **Export:** :x: | PSP |
 | Archive | Persona 1 | **Import:** :x: **Export:** :x: | PC |
 | Archive | Persona 1 | **Import:** :x: **Export:** :x: | PSX |
-| Archive | Persona 1 | **Import:** :x: **Export:** :x: | PSP |
+| Archive | Persona 1 | **Import:** :x: **Export:** :warning: | PSP |
 | Text | Persona 2: Innocent Sin | **Import:** :x: **Export:** :x: | PSX |
 | Text | Persona 2: Innocent Sin | **Import:** :x: **Export:** :x: | PSP |
 | Archive | Persona 2: Innocent Sin | **Import:** :x: **Export:** :x: | PSX |
-| Archive | Persona 2: Innocent Sin | **Import:** :x: **Export:** :heavy_check_mark: | PSP |
+| Archive | Persona 2: Innocent Sin | **Import:** :x: **Export:** :warning: | PSP |
 | Text | Persona 2: Eternal Punishment | **Import:** :x: **Export:** :x: | PSX |
 | Text | Persona 2: Eternal Punishment | **Import:** :x: **Export:** :x: | PSP |
 | Archive | Persona 2: Eternal Punishment | **Import:** :x: **Export:** :x: | PSX |
-| Archive | Persona 2: Eternal Punishment | **Import:** :x: **Export:** :heavy_check_mark: | PSP |
+| Archive | Persona 2: Eternal Punishment | **Import:** :x: **Export:** :warning: | PSP |
 
 ## Build
 
