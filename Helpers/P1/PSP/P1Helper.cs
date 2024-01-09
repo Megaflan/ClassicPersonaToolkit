@@ -8,7 +8,7 @@ using System.IO.Compression;
 using ClassicPersonaToolkit.Helpers.Generic;
 using Yarhl.IO;
 
-namespace ClassicPersonaToolkit.Helpers.P2IS.PSP
+namespace ClassicPersonaToolkit.Helpers.P1.PSP
 {
     public static class P1Helper
     {

@@ -144,7 +144,7 @@
                             string filePath = Console.ReadLine();
                             if (filePath != "")
                                 if (Path.Exists(filePath))
-                                    Helpers.P2IS.PSP.P1Helper.ExtractPersona1Bin(filePath);
+                                    Helpers.P1.PSP.P1Helper.ExtractPersona1Bin(filePath);
                                 else
                                     Console.WriteLine("No file exists in this dir.");
                             else
@@ -168,7 +168,7 @@
                                         try
                                         {
                                             if (filePath.EndsWith(".bin", StringComparison.Ordinal))
-                                                Helpers.P2IS.PSP.P1Helper.ExtractPersona1Bin(filePath);
+                                                Helpers.P1.PSP.P1Helper.ExtractPersona1Bin(filePath);
                                         }
                                         catch (Exception ex)
                                         {
