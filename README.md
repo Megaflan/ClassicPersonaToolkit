@@ -28,6 +28,15 @@
 | Archive | Persona 2: Eternal Punishment | **Import:** :x: **Export:** :x: | PSX |
 | Archive | Persona 2: Eternal Punishment | **Import:** :x: **Export:** :warning: | PSP |
 
+## Notes for developers
+
+The following remarks are dedicated to gathering information pertaining to the program's development.
+This information may include, for instance, the definition of concepts and how the system operates, among other aspects.
+
+Concepts:
+EBD: Event Binary Data
+(This list will be filled during the development.)
+
 ## Build
 
 To build the project, you need to install: [.NET SDK 8.0](https://dotnet.microsoft.com/download) or later.

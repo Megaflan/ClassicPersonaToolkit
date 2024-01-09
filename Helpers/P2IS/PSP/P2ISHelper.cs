@@ -7,6 +7,7 @@ using Yarhl.FileSystem;
 using System.IO.Compression;
 using ClassicPersonaToolkit.Helpers.Generic;
 using Yarhl.IO;
+using Yarhl.Media.Text;
 
 namespace ClassicPersonaToolkit.Helpers.P2IS.PSP
 {
@@ -83,6 +84,29 @@ namespace ClassicPersonaToolkit.Helpers.P2IS.PSP
                         decStream.CopyTo(fileStream);
                     }
                 }
+                Console.WriteLine("Finished writing!");
+            }
+        }
+
+        public static void ExtractPersona2Script(string filePath)
+        {
+            using (var binNode = NodeFactory.FromFile(filePath))
+            {
+                var po = binNode.TransformWith<Formats.P2IS.PSP.BinToEBD>().TransformWith<Formats.P2IS.PSP.EBDToPo>().TransformWith<Po2Binary>();
+                Console.Write("Write to directory: ");
+                string dir = Console.ReadLine().Trim('"');
+
+                if (dir != string.Empty)
+                {
+                    if (!Path.EndsInDirectorySeparator(dir))
+                        dir += Path.DirectorySeparatorChar;
+                }
+
+                if (dir == null)
+                    dir = AppDomain.CurrentDomain.BaseDirectory;
+                Console.WriteLine($"Writing {Path.GetFileNameWithoutExtension(filePath)}.po in {dir}...");
+                po.Stream.WriteTo(dir + Path.GetFileNameWithoutExtension(filePath) + ".po");
+                
                 Console.WriteLine("Finished writing!");
             }
         }

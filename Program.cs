@@ -30,6 +30,7 @@
                 Console.WriteLine("4. Test Function 4 (Extract all P2 GZBIN in a dir) [PSP]");
                 Console.WriteLine("5. Test Function 5 (Extract P1 BIN) [PSP]");
                 Console.WriteLine("6. Test Function 6 (Extract all P1 BIN in a dir) [PSP]");
+                Console.WriteLine("7. [EXPERIMENTAL] Test Function 7 (Extract P2IS String Data in a PO) [PSP]");
                 Console.WriteLine("0. Exit");
                 Console.Write("> ");
 
@@ -184,6 +185,25 @@
                         {
                             Console.WriteLine($"An exception occurred: {ex.Message}");
                         }
+                        break;
+                    case '7':
+                        Console.Clear();
+                        try
+                        {
+                            Console.Write("Write the file path: ");
+                            string filePath = Console.ReadLine();
+                            if (filePath != "")
+                                if (Path.Exists(filePath))
+                                    Helpers.P2IS.PSP.P2ISHelper.ExtractPersona2Script(filePath);
+                                else
+                                    Console.WriteLine("No file exists in this dir.");
+                            else
+                                Console.WriteLine("No file path detected.");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"An exception occurred: {ex.Message}");
+                        }                        
                         break;
                     case '0':
                         Console.WriteLine("Exiting the program. Goodbye!");
