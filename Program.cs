@@ -164,12 +164,11 @@
                             string dirPath = Console.ReadLine();
                             if (dirPath != "")
                                 if (Path.Exists(dirPath))
-                                    foreach (string filePath in Directory.GetFiles(dirPath, "*.bin", SearchOption.AllDirectories))
+                                    foreach (string filePath in Directory.GetFiles(dirPath, "*.*", SearchOption.AllDirectories).Where(s => s.EndsWith(".bin", StringComparison.OrdinalIgnoreCase) || s.EndsWith(".BIN", StringComparison.OrdinalIgnoreCase)))
                                     {
                                         try
-                                        {
-                                            if (filePath.EndsWith(".bin", StringComparison.Ordinal))
-                                                Helpers.P1.PSP.P1Helper.ExtractPersona1Bin(filePath);
+                                        {                                            
+                                            Helpers.P1.PSP.P1Helper.ExtractPersona1Bin(filePath);
                                         }
                                         catch (Exception ex)
                                         {

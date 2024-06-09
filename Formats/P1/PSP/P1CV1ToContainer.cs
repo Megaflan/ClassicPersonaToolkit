@@ -10,7 +10,7 @@ using Yarhl.IO;
 
 namespace ClassicPersonaToolkit.Formats.P1.PSP
 {
-    public class BinToContainer : IConverter<BinaryFormat, NodeContainerFormat>
+    public class P1CV1ToContainer : IConverter<BinaryFormat, NodeContainerFormat>
     {
         public NodeContainerFormat Convert(BinaryFormat source)
         {
@@ -36,7 +36,6 @@ namespace ClassicPersonaToolkit.Formats.P1.PSP
             {
                 file.Root.Add(new Node($"{i}", new BinaryFormat(source.Stream, position, fileSizes[i])));
                 position += ((fileSizes[i] + 0xF) >> 4) << 4;
-
             }
 
             return file;

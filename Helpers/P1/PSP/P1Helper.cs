@@ -16,7 +16,7 @@ namespace ClassicPersonaToolkit.Helpers.P1.PSP
         {
             using (var binNode = NodeFactory.FromFile(filePath))
             {
-                var container = binNode.TransformWith<Formats.P1.PSP.BinToContainer>();
+                var container = binNode.TransformWith<Formats.P1.PSP.P1CV1ToContainer>();
                 Console.Write("Write to directory: ");
                 string dir = Console.ReadLine();
 
@@ -34,7 +34,7 @@ namespace ClassicPersonaToolkit.Helpers.P1.PSP
                 {
                     fileNameList.Add(Convert.ToInt32(f.Name), f.Name + ".bin");
                 }
-                DataStreamUtils.GenerateIndex(fileNameList, "BIN", dir + Path.GetFileNameWithoutExtension(filePath));
+                DataStreamUtils.GenerateIndex(fileNameList, "P1CV1", dir + Path.GetFileNameWithoutExtension(filePath));
 
                 foreach (var f in Navigator.IterateNodes(container))
                 {
