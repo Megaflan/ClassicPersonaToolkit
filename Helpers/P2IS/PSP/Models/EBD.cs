@@ -13,6 +13,8 @@ namespace ClassicPersonaToolkit.Helpers.P2IS.PSP.Models
         public EBD()
         {
             Entries = new Collection<Entry>();
+            Header = new HeaderInfo();
+            AdditionalData = new Dictionary<string, byte[]>();
         }
 
         public class Entry
@@ -22,6 +24,19 @@ namespace ClassicPersonaToolkit.Helpers.P2IS.PSP.Models
             public required string Text { get; set; }
         }
 
+        public class HeaderInfo
+        {
+            public uint StartPos { get; set; }
+            public uint FunctionsPos { get; set; }
+            public uint NumberOfFunctions { get; set; }
+            public uint InstructionsPos { get; set; }
+            public uint ArgumentsPos { get; set; }
+            public uint StringDataPos { get; set; }
+        }
+
         public Collection<Entry> Entries { get; }
+        public HeaderInfo? Header { get; set; }
+        public Dictionary<string, byte[]> AdditionalData { get; set; }
+        public bool HasCompleteOriginalData => Header != null;
     }
 }

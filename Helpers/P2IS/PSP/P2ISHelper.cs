@@ -110,5 +110,74 @@ namespace ClassicPersonaToolkit.Helpers.P2IS.PSP
                 Console.WriteLine("Finished writing!");
             }
         }
+
+        public static void ExtractPersona2ScriptFromBin(string filePath)
+        {
+            using (var binNode = NodeFactory.FromFile(filePath))
+            {
+                var container = binNode.TransformWith<Formats.P2IS.PSP.BinToContainer>();
+                var textNode = container.Children.FirstOrDefault(n => n.Name == "8");
+
+                if (textNode == null)
+                {
+                    Console.WriteLine("Error: Text Node not found in container!");
+                    return;
+                }
+
+                var po = textNode.TransformWith<Formats.P2IS.PSP.BinToEBD>()
+                    .TransformWith<Formats.P2IS.PSP.EBDToPo>()
+                    .TransformWith<Po2Binary>();
+
+                Console.Write("Write to directory: ");
+                string dir = Console.ReadLine().Trim('"');
+
+                if (dir != string.Empty)
+                {
+                    if (!Path.EndsInDirectorySeparator(dir))
+                        dir += Path.DirectorySeparatorChar;
+                }
+
+                if (dir == null)
+                    dir = AppDomain.CurrentDomain.BaseDirectory;
+
+                Console.WriteLine($"Writing {Path.GetFileNameWithoutExtension(filePath)}.po in {dir}...");
+                po.Stream.WriteTo(dir + Path.GetFileNameWithoutExtension(filePath) + ".po");
+
+                Console.WriteLine("Finished writing!");
+            }
+        }
+
+        public static void ImportPersona2Script(string poFilePath, string outputPath = null)
+        {
+            using (var poNode = NodeFactory.FromFile(poFilePath))
+            {
+                // Convert PO to EBD
+                var ebd = poNode.TransformWith<Binary2Po>()
+                    .TransformWith<Formats.P2IS.PSP.PoToEBD>();
+
+                // Convert EBD to Binary
+                var newBinary = ebd.TransformWith<Formats.P2IS.PSP.EbdToBin>();
+
+                string output = outputPath;
+
+                if (string.IsNullOrEmpty(output))
+                {
+                    Console.Write("Write to file (leave empty for default): ");
+                    output = Console.ReadLine()?.Trim('"');
+
+                    if (string.IsNullOrEmpty(output))
+                    {
+                        string dir = Path.GetDirectoryName(poFilePath);
+                        string fileName = Path.GetFileNameWithoutExtension(poFilePath);
+                        output = Path.Combine(dir, fileName + "_new.bin");
+                    }
+                }
+
+                Console.WriteLine($"Writing {Path.GetFileName(output)}...");
+                newBinary.Stream.WriteTo(output);
+
+                Console.WriteLine("Finished writing!");
+            }
+        }
     }
 }

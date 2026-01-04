@@ -45,6 +45,30 @@ namespace ClassicPersonaToolkit.Helpers.P1.PSP
                 }
                 Console.WriteLine("Finished writing!");
             }
-        }        
+        }
+
+        internal static void ExtractPersona1Game(string path)
+        {
+            /*
+            Ok, so...
+            What do we need?
+            Even if I only care about translation, the tool should be able to extract everything, we need to help the modders.
+            I don't think there's a problem about this, at least from the containers point of view.
+            Let's make a breakdown...
+            - Text
+            - Images
+            - Audio
+            - Video
+
+            Most of the formats are standard, most of them are already documented.
+            Images are GIM files.
+            Audios are AT3 files.
+            Videos are PMF files.
+            Neither Audios or Videos are in the packages, they are fully accessible from the UMD.
+
+            So...
+            The only thing we need to worry about is the Text files?             
+            */
+        }
     }
 }
